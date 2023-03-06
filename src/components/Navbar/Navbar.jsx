@@ -11,7 +11,7 @@ function handleLogOut() {
 
 return (
     <nav className='nabvar'>
-        <Link to="/dashboard/search">Cozy-Corner</Link>
+        <Link to="/dashboard">Cozy-Corner</Link>
         <Link to="/events">Events</Link>
         &nbsp;&nbsp; Welcome, {user.name}
         &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>

@@ -12,9 +12,11 @@ export default function NavBar({ user, setUser }) {
     <nav className='navbar'>
       <Link to="/dashboard">Cozy-Corner</Link>
       <div className="navbar__user">
-        <span>Welcome, {user.name}</span>
+        <Link to="/profile">Profile</Link>
         <Link to="" onClick={handleLogOut}>Log Out</Link>
       </div>
     </nav>
   );
 }
+
+

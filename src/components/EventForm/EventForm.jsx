@@ -1,84 +1,71 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import * as eventsAPI from "../../utilities/events-api";
 
-export default function NewEventForm({ event, setEvent }) {
-  const navigate = useNavigate();
+export default function EventForm({ addEvent }) {
+  const [eventForm, setEventForm] = useState({
+    title: "",
+    description: "",
+    date: "",
+    location: "",
+  });
 
   function handleChange(evt) {
-    setEvent({
-      ...event,
+    let newEventForm = {
+      ...eventForm,
       [evt.target.name]: evt.target.value,
-      error: "",
-    });
+    };
+    setEventForm(newEventForm);
   }
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    try {
-      const formDataCopy = { ...event };
-      delete formDataCopy.error;
-      await eventsAPI.addEvent(formDataCopy);
-      navigate("/events");
-    } catch {
-      setEvent({
-        ...event,
-        error: "Failed to add event",
-      });
-    }
+    addEvent(eventForm);
+    setEventForm({
+      title: "",
+      description: "",
+      date: "",
+      location: "",
+    });
   }
 
   return (
-    <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={event.title}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            value={event.description}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="date">Date</label>
-          <input
-            type="datetime-local"
-            id="date"
-            name="date"
-            value={event.date}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="link">Link</label>
-          <input
-            type="text"
-            id="link"
-            name="link"
-            value={event.link}
-            onChange={handleChange}
-          />
-          <label htmlFor="location">Location</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={event.location}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit">Add Event</button>
-        </form>
+    <form className="eventform" onSubmit={handleSubmit}>
+      {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
+      <div>
+        <label htmlFor="title">Title:</label>
+        <input
+          name="title"
+          type="text"
+          value={eventForm.title}
+          onChange={handleChange}
+        />
       </div>
-      <p className="error-message">&nbsp;{event.error}</p>
-    </div>
+      <div>
+        <label htmlFor="description">Description:</label>
+        <textarea
+          name="description"
+          value={eventForm.description}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="date">Date:</label>
+        <input
+          name="date"
+          type="date"
+          value={eventForm.date}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="location">Location:</label>
+        <input
+          name="location"
+          type="text"
+          value={eventForm.location}
+          onChange={handleChange}
+        />
+      </div>
+      <button type="submit">Create Event</button>
+    </form>
   );
 }

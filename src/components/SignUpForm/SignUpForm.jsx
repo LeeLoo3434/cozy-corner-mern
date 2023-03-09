@@ -1,64 +1,102 @@
-import {useState} from 'react'
-import { signUp } from '../../utilities/users-service'
+import { Component } from "react";
+import { signUp } from "../../utilities/users-service";
 
+export default class SignUpForm extends Component {
+  state = {
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
+    error: "",
+  };
 
-export default function SignUpForm({setUser}) {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirm, setConfirm] = useState('');
-    const [error, setError] = useState('');
+  handleChange = (evt) => {
+    this.setState({
+      [evt.target.name]: evt.target.value,
+      error: "",
+    });
+  };
 
-const handleChange = (evt) => {
-    const { name, value } = evt.target;
-    setError('');
-    switch (name) {
-        case 'name':
-            setName(value);
-            break;
-        case 'email':
-            setEmail(value);
-            break;
-        case 'password':
-            setPassword(value);
-            break;
-        case 'confirm':
-            setConfirm(value);
-            break;
-        default:
-            break;
-    }
-};
-
-    const handleSubmit = async (evt) => {
-        evt.preventDefault();
+  handleSubmit = async (evt) => {
+    evt.preventDefault();
     try {
-        const formData = { name, email, password };
-        const user = await signUp(formData);
-        setUser(user);
-    } catch {
-        setError('Sign Up Failed - Try Again');
+      const formData = { ...this.state };
+      delete formData.error;
+      delete formData.confirm;
+      const user = await signUp(formData);
+      this.props.setUser(user);
+    } catch (err) {
+      console.log(err);
+      this.setState({ error: "Sign Up Failed - Try Again" });
     }
-};
+  };
 
-const disable = password !== confirm;
-
+  render() {
+    const disable = this.state.password !== this.state.confirm;
     return (
-        <div>
-        <div className="form-container">
-            <form autoComplete="off" onSubmit={handleSubmit}>
-                <label>Name</label>
-                <input type="text" name="name" value={name} onChange={handleChange} required />
-                <label>Email</label>
-                <input type="email" name="email" value={email} onChange={handleChange} required />
-                <label>Password</label>
-                <input type="password" name="password" value={password} onChange={handleChange} required />
-                <label>Confirm</label>
-                <input type="password" name="confirm" value={confirm} onChange={handleChange} required />
-                <button type="submit" disabled={disable}>SIGN UP</button>
-                </form>
+      <form
+        className="form p-5 rounded"
+        autoComplete="off"
+        onSubmit={this.handleSubmit}
+      >
+        <h3 className="mb-5">SIGN UP</h3>
+        <div className="mb-3">
+          <label>Name</label>
+          <input
+            type="text"
+            name="name"
+            className="form-control"
+            placeholder="Your name"
+            value={this.state.name}
+            onChange={this.handleChange}
+            required
+          />
         </div>
-        <p className="error-message">&nbsp;{error}</p>
-    </div>
-);
+        <div className="mb-3">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            className="form-control"
+            value={this.state.email}
+            onChange={this.handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Your password"
+            className="form-control"
+            value={this.state.password}
+            onChange={this.handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label>Confirm</label>
+          <input
+            type="password"
+            name="confirm"
+            placeholder="Confirm password"
+            className="form-control"
+            value={this.state.confirm}
+            onChange={this.handleChange}
+            required
+          />
+          <button
+            className="btn form-control rounded bg-transparent border-dark mt-5 "
+            type="submit"
+            disabled={disable}
+          >
+            SIGN UP
+          </button>
+        </div>
+        <p className="error-message">&nbsp;{this.state.error}</p>
+      </form>
+    );
+  }
 }

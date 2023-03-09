@@ -4,6 +4,7 @@ module.exports = {
   index,
   create,
   delete: deleteEvent,
+  updateEvent,
 };
 
 async function index(req, res) {
@@ -25,4 +26,9 @@ async function deleteEvent(req, res) {
   console.log(req.params.id)
   const deleteEvent = await Event.findByIdAndRemove(req.params.id)
   return res.json(deleteEvent)
+}
+
+async function updateEvent(req, res) {
+  const updatedEvent = await Event.findByIdAndUpdate(req.params.id, req.body, {new: true});
+  res.json(updatedEvent);
 }

@@ -13,6 +13,6 @@ export function deleteEvent(event) {
     return sendRequest(`${BASE_URL}/delete/${event}`, 'DELETE')
 }
 
-// export async function editEvent(id, formData) {
-//     return sendRequest(`${BASE_URL}/${id}`, 'PUT', formData)
-// }
+export async function updateEvent(id, formData) {
+    return sendRequest(`${BASE_URL}/${id}`, 'PUT', formData)
+}

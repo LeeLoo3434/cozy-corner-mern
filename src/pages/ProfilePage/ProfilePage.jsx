@@ -25,6 +25,14 @@ export default function ProfilePage({ user, setUser, events }) {
     setEvent(newEvents);
   }
 
+  async function editEvent(editedEvent) {
+    const editedResponse = await eventsAPI.updateEvent(editedEvent);
+    const updatedEvents = event.map((e) =>
+      e._id === editedResponse._id ? editedResponse : e
+    );
+    setEvent(updatedEvents);
+  }
+
   return (
     <>
       <h1>Create an Event</h1>
@@ -42,6 +50,9 @@ export default function ProfilePage({ user, setUser, events }) {
               <button onClick={() => deleteEvent(item)} className="btn">
                 X
               </button>
+              <button onClick={() => console.log("edit button clicked")}>
+                  Edit
+                </button>
             </div>
           );
         })}

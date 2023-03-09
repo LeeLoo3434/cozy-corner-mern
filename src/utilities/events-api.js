@@ -10,3 +10,11 @@ export async function createEvent(eventData) {
     throw new Error('Failed to create event');
     }
 }
+export async function getAllEvents() {
+    try {
+    const response = await axios.get(BASE_URL);
+    return response.data;
+    } catch (error) {
+    throw new Error('Failed to fetch events');
+    }
+}

@@ -1,8 +1,10 @@
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
+import { useState } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import './AuthPage.css';
 
-export default function AuthPage({ setUser }) {
+export default function AuthPage() {
+    const [user, setUser] = useState(null);
 return (
     <main className="auth-page">
         <div className="image-container">

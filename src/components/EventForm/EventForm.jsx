@@ -22,7 +22,7 @@ export default function EventForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='eventform' onSubmit={handleSubmit}>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
         <label htmlFor="title">Title:</label>

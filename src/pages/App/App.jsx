@@ -15,7 +15,6 @@ export default function App() {
       // <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<DashboardPage />} />
-        <Route path="/profile" element={<ProfilePage user={user} />} />
         <Route path="/auth" element={<AuthPage setUser={setUser} />} />
       </Routes>
     </main>

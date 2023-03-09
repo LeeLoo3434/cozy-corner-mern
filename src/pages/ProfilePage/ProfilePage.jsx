@@ -16,11 +16,11 @@ export default function ProfilePage({ user }) {
 
   return (
     <>
-      <h1>Create an Event</h1>
-      <p>Welcome, {user.name}!</p>
-      {errorMessage && <p>{errorMessage}</p>}
-      <EventForm onSubmit={handleCreateEvent} />
-    </>
+    <h1>Create an Event</h1>
+    {user && <p>Welcome, {user.name}!</p>}
+    {errorMessage && <p>{errorMessage}</p>}
+    <EventForm onSubmit={handleCreateEvent} />
+  </>
   );
 }
 

@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <main className="App">
-      <NavBar user={user} setUser={setUser} />
+      // <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<DashboardPage />} />
         <Route path="/profile" element={<ProfilePage user={user} />} />

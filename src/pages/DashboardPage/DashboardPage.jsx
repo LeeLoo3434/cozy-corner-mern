@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Carousel } from 'bootstrap';
-import NavBar from '../../components/Navbar/Navbar';
+import MyCarousel from '../../components/MyCarousel/MyCarousel'
 
 export default function DashboardPage() {
   return (
     <>
-      <NavBar />
-      <Carousel />
+      <MyCarousel interval={3000} />
 
       <div className="container my-4">
         <div className="row justify-content-center">

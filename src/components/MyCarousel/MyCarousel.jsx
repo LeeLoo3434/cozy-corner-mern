@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import 'popper.js/dist/umd/popper.min.js';
 export default function MyCarousel() {
   return (
     <div

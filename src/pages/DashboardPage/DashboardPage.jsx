@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import MyCarousel from "../../components/MyCarousel/MyCarousel";
-
+import "./DashboardPage.css";
 
 export default function DashboardPage() {
   return (

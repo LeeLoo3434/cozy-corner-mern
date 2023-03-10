@@ -35,12 +35,14 @@ export default function ProfilePage({ user, setUser, events }) {
 
   return (
     <>
-      <h1>Create an Event</h1>
+    <div>
+      <h1 className="h1">Create an Event</h1>
+    </div>
       <EventForm addEvent={addEvent} />
-      <div className="container col-12">
+      <div className="container">
         {event.map((item, key) => {
           return (
-            <div className="d-flex justify-content-between">
+            <div className="justify-content-between">
               <ul className="col-12" item={item} key={key}>
                 <li>{item.title}</li>
                 <li>{item.description}</li>
@@ -50,9 +52,9 @@ export default function ProfilePage({ user, setUser, events }) {
               <button onClick={() => deleteEvent(item)} className="btn">
                 X
               </button>
-              <button onClick={() => console.log("edit button clicked")}>
-                  Edit
-                </button>
+              <button onClick={() => editEvent(item)} className="btn">
+                Edit
+              </button>
             </div>
           );
         })}

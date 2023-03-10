@@ -4,7 +4,7 @@ const eventsCtrl = require('../../controllers/api/events');
 
 router.get('/index', eventsCtrl.index);
 router.post('/create', eventsCtrl.create);
-router.put('/:id', eventsCtrl.updateEvent);
+router.post('/update/:id', eventsCtrl.updateEvent);
 router.delete('/delete/:id', eventsCtrl.delete);
 
 module.exports = router;

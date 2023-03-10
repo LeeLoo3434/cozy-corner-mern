@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import './EventForm.css';
 export default function EventForm({ addEvent }) {
   const [eventForm, setEventForm] = useState({
     title: "",

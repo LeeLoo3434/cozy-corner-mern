@@ -27,8 +27,16 @@ async function deleteEvent(req, res) {
   const deleteEvent = await Event.findByIdAndRemove(req.params.id)
   return res.json(deleteEvent)
 }
-
 async function updateEvent(req, res) {
-  const updatedEvent = await Event.findByIdAndUpdate(req.params.id, req.body, {new: true});
-  res.json(updatedEvent);
+  try {
+    const updatedEvent = await Event.findByIdAndUpdate(
+      req.params.id, 
+      req.body, // extract updated event data from the request body
+      { new: true } // return the updated event instead of the original
+    );
+    return res.json(updatedEvent);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Failed to update event' });
+  }
 }

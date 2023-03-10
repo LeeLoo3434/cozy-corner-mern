@@ -14,5 +14,5 @@ export function deleteEvent(event) {
 }
 
 export async function updateEvent(id, formData) {
-    return sendRequest(`${BASE_URL}/${id}`, 'PUT', formData)
+    return sendRequest(`${BASE_URL}/update/${id}`, 'POST', formData);
 }

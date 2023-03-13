@@ -21,7 +21,7 @@ export default function EventsPage({
             deleteEvent={deleteEvent}
             />
         ))}
-         </div>
+        </div>
     </>
     );
 }

@@ -6,7 +6,7 @@ import * as userService from '../../utilities/users-service';
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
     userService.logOut();
-      setUser(null)
+    setUser(null);
   }
 
   return (
@@ -14,9 +14,11 @@ export default function NavBar({ user, setUser }) {
       <Link to="/">Cozy-Corner</Link>
       <div className="navbar__user">
         <Link to="/profile">Profile</Link>
+        <Link to="/events">Events</Link>
         <Link to="" onClick={handleLogOut}>Log Out</Link>
       </div>
     </nav>
   );
 }
+
 

@@ -17,15 +17,23 @@ export default function EventForm({ addEvent }) {
   }
 
   async function handleSubmit(evt) {
-    evt.preventDefault();
-    addEvent(eventForm);
-    setEventForm({
-      title: "",
-      description: "",
-      date: "",
-      location: "",
-    });
-  }
+  evt.preventDefault();
+  const formattedDate = eventForm.date;
+  const eventData = {
+    ...eventForm,
+    date: formattedDate,
+  };
+  console.log("formattedDate: ", formattedDate);
+
+  addEvent(eventData);
+  setEventForm({
+    title: "",
+    description: "",
+    date: "",
+    location: "",
+  });
+}
+
 
   return (
     <form className="eventform" onSubmit={handleSubmit}>

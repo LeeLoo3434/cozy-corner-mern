@@ -3,8 +3,8 @@ const Event = require('../../models/event')
 module.exports = {
   index,
   create,
+  update,
   delete: deleteEvent,
-  updateEvent,
 };
 
 async function index(req, res) {
@@ -22,21 +22,14 @@ async function create(req, res) {
   return res.json(newEvent)
 }
 
+
 async function deleteEvent(req, res) {
   console.log(req.params.id)
   const deleteEvent = await Event.findByIdAndRemove(req.params.id)
   return res.json(deleteEvent)
 }
-async function updateEvent(req, res) {
-  try {
-    const updatedEvent = await Event.findByIdAndUpdate(
-      req.params.id, 
-      req.body, // extract updated event data from the request body
-      { new: true } // return the updated event instead of the original
-    );
-    return res.json(updatedEvent);
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: 'Failed to update event' });
-  }
+
+async function update(req, res) {
+  const updEvent = await Event.findByIdAndUpdate(req.params.id, req.body);
+  return res.json(updEvent)
 }

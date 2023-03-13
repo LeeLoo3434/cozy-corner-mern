@@ -1,30 +1,30 @@
 import { useState } from "react";
 
-export default function EventForm({ addEvent }) {
-  const [eventForm, setEventForm] = useState({
+export default function UpdateEventForm({ event, updateEvent }) {
+  const [updateEventForm, setUpdateEventForm] = useState({
     title: "",
     description: "",
     date: "",
     location: "",
   });
 
-  function handleChange(evt) {
-    let newEventForm = {
-      ...eventForm,
-      [evt.target.name]: evt.target.value,
-    };
-    setEventForm(newEventForm);
-  }
-
   async function handleSubmit(evt) {
     evt.preventDefault();
-    addEvent(eventForm);
-    setEventForm({
+    updateEvent(event._id, updateEventForm);
+    setUpdateEventForm({
       title: "",
       description: "",
       date: "",
       location: "",
     });
+  }
+
+  function handleChange(evt) {
+    let newUpdateEventForm = {
+      ...updateEventForm,
+      [evt.target.name]: evt.target.value,
+    };
+    setUpdateEventForm(newUpdateEventForm);
   }
 
   return (
@@ -35,7 +35,7 @@ export default function EventForm({ addEvent }) {
         <input
           name="title"
           type="text"
-          value={eventForm.title}
+          value={updateEventForm.title}
           onChange={handleChange}
         />
       </div>
@@ -43,7 +43,7 @@ export default function EventForm({ addEvent }) {
         <label htmlFor="description">Description:</label>
         <textarea
           name="description"
-          value={eventForm.description}
+          value={updateEventForm.description}
           onChange={handleChange}
         />
       </div>
@@ -52,7 +52,7 @@ export default function EventForm({ addEvent }) {
         <input
           name="date"
           type="date"
-          value={eventForm.date}
+          value={updateEventForm.date}
           onChange={handleChange}
         />
       </div>
@@ -61,11 +61,11 @@ export default function EventForm({ addEvent }) {
         <input
           name="location"
           type="text"
-          value={eventForm.location}
+          value={updateEventForm.location}
           onChange={handleChange}
         />
       </div>
-      <button type="submit">Create Event</button>
+      <button type="submit">Update Event</button>
     </form>
   );
 }

@@ -13,6 +13,10 @@ export function deleteEvent(event) {
     return sendRequest(`${BASE_URL}/delete/${event}`, 'DELETE')
 }
 
-export async function updateEvent(id, formData) {
-    return sendRequest(`${BASE_URL}/update/${id}`, 'POST', formData);
+export function updateEvent (event, updateEventData) {
+    return sendRequest(`${BASE_URL}/${event}`, 'PUT', updateEventData)
 }
+
+// export function getOnePEvent (selectedEvent) {
+//     return sendRequest(`${BASE_URL}/${selectedEvent}`)
+// }

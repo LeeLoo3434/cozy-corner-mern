@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# The Cozy Corner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Cozy Corner is a web application that allows users to create their own local events focused on the queer community. It's built using the MERN stack, which includes MongoDB, Express.js, React, and Node.js.
 
-## Available Scripts
+![A2805BAB-B32E-46A4-8247-6D995C5C9CEA](https://user-images.githubusercontent.com/113068944/225078656-03637b08-1979-400e-8781-75c19819ff8c.jpeg)
 
-In the project directory, you can run:
 
-### `npm start`
+## Current Functionality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The current functionality of The Cozy Corner includes:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- User registration and login
+- Creating local events
 
-### `npm test`
+## Future Functionality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In the future, The Cozy Corner will include the following features:
 
-### `npm run build`
+- User-to-user connections and messaging
+- Searching for events in the user's area
+- Liking events
+- RSVPing to events
+- Viewing events that the user has RSVP'd to
+- Viewing events created by other users
+- A "Missed Connections" page for events that have already passed
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://cozy-corner-mern.herokuapp.com/

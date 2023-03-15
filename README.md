@@ -10,7 +10,7 @@ The Cozy Corner is a web application that allows users to create their own local
 The current functionality of The Cozy Corner includes:
 
 - User registration and login
-- Creating local events
+- Creating local events (full CRUD functionality)
 
 ## Future Functionality
 
